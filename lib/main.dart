@@ -15,7 +15,14 @@ void main() {
   );
 }
 
-class BallPage extends StatelessWidget {
+class BallPage extends StatefulWidget {
+  final int number = 1;
+
+  @override
+  _BallPageState createState() => _BallPageState();
+}
+
+class _BallPageState extends State<BallPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +32,7 @@ class BallPage extends StatelessWidget {
       body: Center(
         child: FlatButton(
           onPressed: () => {},
-          child: Image.asset('images/ball1.png'),
+          child: Image.asset('images/ball${widget.number}.png'),
         ),
       ),
     );
