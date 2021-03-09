@@ -22,6 +22,12 @@ class BallPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Ask Me Anything'),
       ),
+      body: Center(
+        child: FlatButton(
+          onPressed: () => {},
+          child: Image.asset('images/ball1.png'),
+        ),
+      ),
     );
   }
 }
