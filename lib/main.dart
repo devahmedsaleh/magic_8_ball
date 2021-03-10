@@ -2,8 +2,13 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(
-    MaterialApp(
+  runApp(Magic8Ball());
+}
+
+class Magic8Ball extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       theme: ThemeData(
         primaryColor: Colors.blue.shade900,
         appBarTheme: AppBarTheme(
@@ -12,8 +17,8 @@ void main() {
         scaffoldBackgroundColor: Colors.blue,
       ),
       home: BallPage(),
-    ),
-  );
+    );
+  }
 }
 
 class BallPage extends StatefulWidget {
