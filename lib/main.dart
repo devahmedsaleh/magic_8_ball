@@ -1,5 +1,6 @@
-import 'dart:math';
 import 'package:flutter/material.dart';
+
+import 'package:magic_8_ball/ball.dart';
 
 void main() => runApp(Magic8Ball());
 
@@ -17,25 +18,6 @@ class Magic8Ball extends StatelessWidget {
           centerTitle: true,
         ),
         body: SafeArea(child: Ball()),
-      ),
-    );
-  }
-}
-
-class Ball extends StatefulWidget {
-  @override
-  _BallState createState() => _BallState();
-}
-
-class _BallState extends State<Ball> {
-  int number = 1;
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: TextButton(
-        onPressed: () => setState(() => number = Random().nextInt(5) + 1),
-        child: Image.asset('images/ball$number.png'),
       ),
     );
   }
