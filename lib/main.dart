@@ -1,9 +1,7 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(Magic8Ball());
-}
+void main() => runApp(Magic8Ball());
 
 class Magic8Ball extends StatelessWidget {
   @override
@@ -11,35 +9,33 @@ class Magic8Ball extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         primaryColor: Colors.blue.shade900,
-        appBarTheme: AppBarTheme(
-          centerTitle: true,
-        ),
         scaffoldBackgroundColor: Colors.blue,
       ),
-      home: BallPage(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Ask Me Anything'),
+          centerTitle: true,
+        ),
+        body: SafeArea(child: Ball()),
+      ),
     );
   }
 }
 
-class BallPage extends StatefulWidget {
+class Ball extends StatefulWidget {
   @override
-  _BallPageState createState() => _BallPageState();
+  _BallState createState() => _BallState();
 }
 
-class _BallPageState extends State<BallPage> {
+class _BallState extends State<Ball> {
   int number = 1;
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Ask Me Anything'),
-      ),
-      body: Center(
-        child: FlatButton(
-          onPressed: () => setState(() => number = Random().nextInt(5) + 1),
-          child: Image.asset('images/ball$number.png'),
-        ),
+    return Center(
+      child: TextButton(
+        onPressed: () => setState(() => number = Random().nextInt(5) + 1),
+        child: Image.asset('images/ball$number.png'),
       ),
     );
   }

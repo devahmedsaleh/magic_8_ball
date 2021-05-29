@@ -20,11 +20,11 @@ void main() {
     (WidgetTester tester) async {
       await tester.pumpWidget(Magic8Ball());
 
-      final flatButtonFinder = find.byType(FlatButton);
+      final textButtonFinder = find.byType(TextButton);
       final imgFinder = find.byType(Image);
 
       final imgDescendant =
-          find.descendant(of: flatButtonFinder, matching: imgFinder);
+          find.descendant(of: textButtonFinder, matching: imgFinder);
 
       expect(imgDescendant, findsOneWidget);
     },
@@ -37,7 +37,7 @@ void main() {
 
       final firstImgFinder = find.byType(Image);
 
-      await tester.tap(find.byType(FlatButton));
+      await tester.tap(find.byType(TextButton));
       await tester.pump();
 
       final secondImgFinder = find.byType(Image);
